@@ -30,10 +30,16 @@ export function DbProvider({children}: {children: ReactNode}){
     const [ringsData, setRingsData] = useState<RingsData>({}); // サーバーから取得したリングデータ
     const [latestRing, setLatestRing] = useState<RingData | null>(null); // 直前に追加されたリングデータ
 
-    // 初回レンダリング時、サーバーからデータを取得する
+    // 一定時間おきにサーバーからデータを取得し、リング表示を初期化する
     useEffect(() => {
         initializeRingData();
-    }, [])
+        const intervalTime: number = 1000 * 60 * 1; // 1分置きに更新する
+        const intervalFunc = setInterval(() => {
+            initializeRingData();
+            console.log("リングデータを更新しました")
+        }, intervalTime);
+        return () => clearInterval(intervalFunc);
+    }, []);
 
     // リングのデータを、サーバーから取得したデータで初期化する関数
     async function initializeRingData(): Promise<void>{
