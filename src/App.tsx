@@ -84,7 +84,7 @@ function App() {
     // 最終更新日時の情報を初期化する関数
     function initializeLatestRing(): void{
       //最終更新日時の情報をstoreへ送る
-      const date         = new Date(latestRing?.creationDate || 0);
+      const date         = new Date(latestRing?.creationDate ?? 0);
       const year         = date.getFullYear();
       const month        = date.getMonth() + 1;
       const day          = date.getDate();

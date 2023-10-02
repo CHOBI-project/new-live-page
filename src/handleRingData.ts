@@ -43,7 +43,7 @@ export function convertToTorus(data: RingData): TorusInfo{
 // 全データの中から、直前に追加されたリングのデータを取得する関数
 export function getLatestRing(data: RingsData): RingData | null{
     let latestRing: RingData | null = null;
-    Object.entries(data).forEach(([_key, value], _index) => {
+    Object.values(data).forEach((value) => {
         if((latestRing === null) || (value.ringCount > latestRing.ringCount)){
             latestRing = value;
         }

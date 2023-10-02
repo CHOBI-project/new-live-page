@@ -47,6 +47,7 @@ export function DbProvider({children}: {children: ReactNode}){
             "サーバーからデータを取得しました:\n", newRingsData,
             "\nリング数:", Object.keys(newRingsData).length
         );
+        console.log("最新のリング:\n", newLatestRing);
     }
 
     return (
