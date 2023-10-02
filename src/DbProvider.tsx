@@ -33,7 +33,8 @@ export function DbProvider({children}: {children: ReactNode}){
     // 一定時間おきにサーバーからデータを取得し、リング表示を初期化する
     useEffect(() => {
         initializeRingData();
-        const intervalTime: number = 1000 * 60 * 1; // 1分置きに更新する
+        // const intervalTime: number = 1000 * 60 * 1; // 1分置きに更新する
+        const intervalTime: number = 1000; // 1000ミリ秒でも負荷大丈夫そう
         const intervalFunc = setInterval(() => {
             initializeRingData();
             console.log("リングデータを更新しました")
