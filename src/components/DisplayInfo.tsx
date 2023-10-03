@@ -1,8 +1,11 @@
 import "../App.css";
+import { DbContext } from "../DbProvider";
 import { useAppSelector } from "../redux/store";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 function DisplayInfo() {
+    const { latestRing } = useContext(DbContext);
+
     const currentTime = useAppSelector((state) => state.time.value);
     const updateTime  = useAppSelector((state) => state.updateTime.value);
 
@@ -35,7 +38,7 @@ function DisplayInfo() {
             </div>
 
             <div className="geo-info">
-                <p>河原電子ビジネス専門学校</p> {/* 場所はここへ */}
+                <p>{latestRing?.locationJp ?? ""}</p> {/* 場所はここへ */}
                 <p>Latitude &nbsp;&nbsp; : <span>{ latLocation }</span></p>
                 <p>Longitude : <span>{ lngLocation }</span></p>
             </div>
