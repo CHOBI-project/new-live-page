@@ -38,7 +38,7 @@ function DisplayInfo() {
             </div>
 
             <div className="geo-info">
-                <p>{latestRing?.locationJp ?? ""}</p> {/* 場所はここへ */}
+                <p>{latestRing?.locationJp ?? "不明"}</p> {/* 場所はここへ */}
                 <p>Latitude &nbsp;&nbsp; : <span>{ latLocation }</span></p>
                 <p>Longitude : <span>{ lngLocation }</span></p>
             </div>
