@@ -92,7 +92,7 @@ function App() {
       const minute       = date.getMinutes().toString().padStart(2, "0");
       const second       = date.getSeconds().toString().padStart(2, "0");
 
-      dispatch(getUpdateTime(`${year}年${month}月${day}日${hour}:${minute}:${second}`));
+      dispatch(getUpdateTime(`${year}/${month}/${day} ${hour}:${minute}:${second}`));
     };
 
 
