@@ -95,21 +95,6 @@ function App() {
       dispatch(getUpdateTime(`${year}/${month}/${day} ${hour}:${minute}:${second}`));
     };
 
-
-  //現在時間をstoreへ送る
-  setInterval(() => {
-    const date         = new Date();
-    const month        = date.getMonth() + 1;
-    const day          = date.getDate();
-    const hour         = date.getHours().toString().padStart(2, "0");
-    const minute       = date.getMinutes().toString().padStart(2, "0");
-    const second       = date.getSeconds().toString().padStart(2, "0");
-    const dayOfTheWeek = date.getDay();
-    const weekName     = ['日', '月', '火', '水', '木', '金', '土'];
-
-    dispatch(getCurrentTime(`${month}/${day}(${weekName[dayOfTheWeek]}) ${hour}:${minute}:${second}`));
-  }, 1000);
-
   return(
     <div className='canvas'>
       <Canvas camera={{ position: [0,0,10] }} >
