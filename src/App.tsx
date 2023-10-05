@@ -5,7 +5,6 @@ import { Canvas } from '@react-three/fiber';
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./redux/store";
 import { TorusInfo, pushTorusInfo, resetHandle } from "./redux/features/torusInfo-slice";
-import { getCurrentTime } from "./redux/features/currentTime-slice";
 import { getUpdateTime } from "./redux/features/updateTime-slice";
 import TorusList from './components/TorusList';
 import DisplayInfo from "./components/DisplayInfo";

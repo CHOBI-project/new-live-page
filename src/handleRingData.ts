@@ -1,5 +1,6 @@
 import { TorusInfo } from "./redux/features/torusInfo-slice";
 import { v4 as uuidv4 } from 'uuid';
+import { Ring, positionArray, torusScale } from "./torusPosition";
 
 
 /* 型定義 */
@@ -12,12 +13,7 @@ export type RingData = {
     "userIp": string; // IPアドレス
     "ringCount": number; // リング数
     "orbitIndex": number; // リング軌道内の順番(DEI中の何個目か、0~70)
-    "rotateX": number; // リング角度(右手親指)
-    "rotateY": number; // リング角度(右手人差し指)
-    "positionX": number; // リング位置(横方向)
-    "positionY": number; // リング位置(縦方向)
-    "ringColor": number; // リング色
-    "scale": number; //リングの大きさ
+    "ringHue": number; // リングの色調(0～360)
     "creationDate":  number // 撮影日時
 };
 export type RingsData = {
@@ -28,14 +24,15 @@ export type RingsData = {
 /* 関数定義 */
 // RingData型をTorusInfo型に変換する関数
 export function convertToTorus(data: RingData): TorusInfo{
+    const newRingPosition: Ring = positionArray[data.orbitIndex]; // リングの軌道設定
     const newTorusInfo: TorusInfo = {
         id: uuidv4(),
-        color: data.ringColor,
-        rotateX: data.rotateX,
-        rotateY: data.rotateY,
-        positionX: data.positionX,
-        positionY: data.positionY,
-        scale: data.scale
+        color: `hsl(${data.ringHue}, 100%, 50%)`,
+        rotateX: newRingPosition.rotateX,
+        rotateY: newRingPosition.rotateY,
+        positionX: newRingPosition.positionX,
+        positionY: newRingPosition.positionY,
+        scale: torusScale
     };
     return newTorusInfo;
 }

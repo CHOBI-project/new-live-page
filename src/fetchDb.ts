@@ -1,8 +1,8 @@
 import { RingsData } from "./handleRingData";
 
 /* 関数定義 */
-// const apiDomain: string = "https://api.wawwd.net/api/"; // アプリケーションサーバーのドメイン
-const apiDomain: string = "https://wawwdtestdb-default-rtdb.firebaseio.com/api/"; // 仮DBサーバーのドメイン
+// const apiDomain: string = "https://api.wawwd.net/"; // アプリケーションサーバーのドメイン
+const apiDomain: string = "https://wawwdtestdb-default-rtdb.firebaseio.com/"; // 仮DBサーバーのドメイン
 
 // GETリクエストを行う共通関数
 async function makeGetRequest(apiEndpoint: string, queryParams?: string): Promise<Response>{
@@ -23,8 +23,8 @@ async function makeGetRequest(apiEndpoint: string, queryParams?: string): Promis
 
 // ピン一か所から、リングのデータを取得する関数
 export async function getRingData(location?: string): Promise<RingsData> {
-    // const apiEndpoint: string = "ring-data";
-    const apiEndpoint: string = "ring-data.json"; // 仮エンドポイント
+    // const apiEndpoint: string = "rings";
+    const apiEndpoint: string = "rings.json"; // 仮エンドポイント
     let queryParams: string = "";
     if(location){
         // ピンが指定されている場合、その一か所からのみリングのデータを取得する
