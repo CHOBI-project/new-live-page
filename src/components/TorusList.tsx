@@ -23,9 +23,9 @@ function TorusList() {
       state.camera.position.y = 0;
       state.camera.position.z = Math.sin(elapsedTime * 0.1) * 25;
     } else {
-      state.camera.position.x = Math.cos(elapsedTime * 0.1) * 10;
+      state.camera.position.x = Math.cos(elapsedTime * 0.1) * 8;
       state.camera.position.y = 0;
-      state.camera.position.z = Math.sin(elapsedTime * 0.1) * 10;
+      state.camera.position.z = Math.sin(elapsedTime * 0.1) * 8;
     }
     state.camera.lookAt(new Vector3(0, 0, 0));
   });

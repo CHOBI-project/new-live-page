@@ -6,7 +6,7 @@ import { useContext } from "react";
 function DisplayInfo() {
     const { latestRing } = useContext(DbContext);
 
-    const updateTime  = useAppSelector((state) => state.updateTime.value);
+    const updateTime = useAppSelector((state) => state.updateTime.value);
 
     return (
         <>
