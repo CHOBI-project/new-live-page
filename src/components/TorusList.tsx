@@ -30,6 +30,7 @@ function TorusList() {
     state.camera.lookAt(new Vector3(0, 0, 0));
   });
 
+
   return (
     <>
         {torusList.map((torus) => (

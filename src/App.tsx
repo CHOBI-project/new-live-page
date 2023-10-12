@@ -97,7 +97,7 @@ function App() {
   return(
     <div className='canvas'>
       <Canvas camera={{ position: [0,0,6] }} >
-        <color attach="background" args={[0xff0000]} />
+        <color attach="background" args={[0x00000000]} />
         <TorusList />
         <ambientLight intensity={1} />
         <directionalLight intensity={1.5} position={[1,1,1]} />
